@@ -1,0 +1,59 @@
+﻿using System;
+using System.Net;
+using System.Net.Sockets;
+
+class Program
+{
+    static int FindWheel()
+    {
+        for (int i = 0; i < 4; i++)
+            if (LogitechGSDK.LogiIsConnected(i)) return i;
+        return -1;
+    }
+
+    static void Main(string[] args)
+    {
+        int port = args.Length > 0 ? int.Parse(args[0]) : 5610;
+
+        bool ok = LogitechGSDK.LogiSteeringInitialize(true);
+        Console.WriteLine(ok ? "SDK init OK" : "SDK init FAILED (is G HUB running?)");
+
+        using var udp = new UdpClient(port);
+        var ep = new IPEndPoint(IPAddress.Any, port);
+        Console.WriteLine($"Listening udp://127.0.0.1:{port}  (drive in-world)");
+
+        int wheel = -1;
+        float smoothed = 0f, alpha = 0.35f;
+
+        while (true)
+        {
+            var buf = udp.Receive(ref ep);
+            if (buf.Length < 20) continue;
+
+            int isOn = BitConverter.ToInt32(buf, 0);
+            if (isOn == 0) continue;
+
+            float max  = BitConverter.ToSingle(buf, 8);
+            float idle = BitConverter.ToSingle(buf, 12);
+            float cur  = BitConverter.ToSingle(buf, 16);
+
+            if (max < 1000f) max = 8000f;
+            smoothed = smoothed == 0 ? cur : smoothed + alpha * (cur - smoothed);
+
+            LogitechGSDK.LogiUpdate();
+            if (wheel < 0) { wheel = FindWheel(); }
+
+            if (wheel >= 0)
+            {
+                float firstOn = MathF.Max(idle + 0.60f * (max - idle), idle + 500f);
+                float redline = max * 0.98f;
+                LogitechGSDK.LogiPlayLeds(wheel, smoothed, firstOn, redline);
+                Console.WriteLine($"wheel={wheel} rpm={smoothed:0} / {max:0}");
+            }
+            else
+            {
+                Console.WriteLine("No wheel detected yet… (G HUB open? USB plugged in?)");
+            }
+        }
+    }
+}

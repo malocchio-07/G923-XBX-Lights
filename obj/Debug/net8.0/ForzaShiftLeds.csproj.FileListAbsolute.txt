@@ -1,0 +1,15 @@
+C:\ForzaShiftLeds\ForzaShiftLeds\bin\Debug\net8.0\LogitechSteeringWheelEnginesWrapper.dll
+C:\ForzaShiftLeds\ForzaShiftLeds\bin\Debug\net8.0\ForzaShiftLeds.exe
+C:\ForzaShiftLeds\ForzaShiftLeds\bin\Debug\net8.0\ForzaShiftLeds.deps.json
+C:\ForzaShiftLeds\ForzaShiftLeds\bin\Debug\net8.0\ForzaShiftLeds.runtimeconfig.json
+C:\ForzaShiftLeds\ForzaShiftLeds\bin\Debug\net8.0\ForzaShiftLeds.dll
+C:\ForzaShiftLeds\ForzaShiftLeds\bin\Debug\net8.0\ForzaShiftLeds.pdb
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.GeneratedMSBuildEditorConfig.editorconfig
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.AssemblyInfoInputs.cache
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.AssemblyInfo.cs
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.csproj.CoreCompileInputs.cache
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.dll
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\refint\ForzaShiftLeds.dll
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.pdb
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ForzaShiftLeds.genruntimeconfig.cache
+C:\ForzaShiftLeds\ForzaShiftLeds\obj\Debug\net8.0\ref\ForzaShiftLeds.dll
